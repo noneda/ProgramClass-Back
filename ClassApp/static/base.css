@@ -1,0 +1,43 @@
+:root {
+    --Orange: #C96868;
+    --Yellow: #FADFA1;
+    --Blue: #7EACB5;
+    --Green: #95D2B3;
+    --Green-Soft: #E2F1E7;
+    --Snow: #FFF4EA;
+    --Black: #1E201E;
+    --False: #FF8A8A;
+
+    --BodyColor: #F5EFFF;
+    --SectionsColor: #B9B4C71F;
+    --ButtonsColor: #F5EFFF;
+
+    --FontColor: #222831;
+    --IconColor: #282A36;
+}
+
+.dark {
+    --Green: #577B8D;
+    --Blue: #344C64;
+    --Green-Soft: #76ABAE;
+    --False: #A0153E;
+    --Yellow: #526D82;
+
+    --BodyColor: #352F44;
+    --SectionsColor: #B9B4C71F;
+    --ButtonsColor: #B9B4C71F;
+
+    --FontColor: #FAF0E6;
+    --IconColor: #FAF0E6;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    background-color: var(--BodyColor);
+    color: var(--FontColor);
+    transition: background-color 0.6s;
+    overflow: hidden;
+}
