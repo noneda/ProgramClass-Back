@@ -1,7 +1,7 @@
 from django.db import models;
-from .Class  import Class
+from .Class  import Class_Main
 
-
-class Section(models.Model):
+class Class_Section(models.Model):
     Name = models.CharField(max_length=100)
-    Class = models.ForeignKey(Class, on_delete=models.CASCADE)
+    Info = models.TextField();
+    Class = models.ForeignKey(Class_Main, on_delete=models.CASCADE)
