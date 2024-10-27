@@ -4,9 +4,5 @@ from ..models.Class import Class_Main as model;
 class Class_Main_Form(fm.ModelForm):    
     class Meta:
         model = model;
-        fields = [
-            'title',
-            'text',
-            'type'
-        ]
+        fields = '__all__'
         
