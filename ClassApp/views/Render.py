@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from ..forms import *
+from ..models import *
 
 def Index (req):
     return render(
@@ -7,56 +8,40 @@ def Index (req):
     )
     
 def viewFormMain (req):
-    form = Class_Main_Form(req.POST or None)
-    if form.is_valid():
-        form.save()
-    
+    pageName =  "Class Main"
+    Form = Class_Main_Form
+    Data = Class_Main.objects.all()
     context = {
-        'pageName' : "Class Main",
-        'form' : form
+        'pageName' : pageName,
+        'Form' : Form,
+        'Data' : Data
     };
     
-    return render(req, 'form.html', context)
+    if req.method == 'POST':
+        form = Class_Main_Form(req.POST)
+        form.save(commit=False)
+        
+        return render(req, 'form.html', context)
+    else:
+        return render(req, 'form.html', context)
 
 def viewFormSection (req):
-    form = Class_Section_Form(req.POST or None)
-    if form.is_valid():
-        form.save()
-    
-    context = {
-         'pageName' : "Class Section",
-         'form' : form
-    }
-    
     return render(
-        req, 'form.html', context
+        req, 'form.html', {
+            'pageName' : "Class Section"
+        }
     )
 
 def viewFormSubSection (req):
-    form = Class_SubSection_Form(req.POST or None)
-    if form.is_valid():
-        form.save()
-    
-    context = {
-         'pageName' : "Class Section",
-         'form' : form
-    }
-    
     return render(
-        req, 'form.html', context
+        req, 'form.html', {
+            'pageName' : "Class SubSection"
+        }
     )
 
-
 def viewFormQuestion(req):
-    form = Class_Question_Form(req.POST or None)
-    if form.is_valid():
-        form.save()
-    
-    context = {
-         'pageName' : "Class Section",
-         'form' : form
-    }
-    
     return render(
-        req, 'form.html', context
+        req, 'form.html', {
+            'pageName' : "Class Question"
+        }
     )

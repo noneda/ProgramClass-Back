@@ -1,10 +1,19 @@
 {% extends 'layouts/base.html' %} {% block content %}
 <div class="Box">
-  <form method="POST">
-    {% csrf_token %} {{ form }}
-    <input type="submit" value="Save" id="Save" />
-    <input type="submit" value="Update" id="Update" />
-    <input type="submit" value="Delete" id="Delete" />
+  <form id="Form" action="/App/Class" method="POST">
+    {% csrf_token %} {{ Form }}
+    <div>
+      <input type="submit" value="Save" id="Save" />
+    </div>
   </form>
+</div>
+
+<div class="Show">
+  <ul>
+    <li>ID / Title / Text / Type</li>
+    {% for data in Data %}
+    <li>{{data.id}} / {{data.title}} / {{data.text}} / {{ data.type }}</li>
+    {% endfor %}
+  </ul>
 </div>
 {% endblock %}

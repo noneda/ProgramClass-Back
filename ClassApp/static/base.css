@@ -55,6 +55,7 @@ nav {
 
 nav ul li {
     list-style: none;
+    text-align: left;
 }
 
 #root {
@@ -66,12 +67,34 @@ nav ul li {
     height: auto;
     margin: 20px 33px;
     padding: 5px 20px;
+    overflow: auto;
 }
 
 .Box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     box-shadow: 2.5px 5px 10px rgb(0, 0, 0, 0.15);
     background-color: var(--SectionsColor);
     backdrop-filter: blur(10px);
     border-radius: 12px;
     padding: 100px 50px;
+    width: auto;
+}
+
+
+.Box form {
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    padding: 20px;
+}
+
+.Box form div {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 10px 0;
+    width: 100%;
+    height: auto;
 }
