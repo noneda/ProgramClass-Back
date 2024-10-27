@@ -8,6 +8,27 @@
     <title>{{pageName}}</title>
   </head>
   <body>
-    {% block content %} {% endblock %}
+    <nav>
+      <ul>
+        <li>
+          <a href="/App">Home</a>
+        </li>
+        <li>
+          <a href="/App/Class">Class</a>
+        </li>
+        <li>
+          <a href="/App/Section">Section</a>
+        </li>
+        <li>
+          <a href="/App/SubSection">SubSection</a>
+        </li>
+        <li>
+          <a href="/App/Question">Question</a>
+        </li>
+      </ul>
+    </nav>
+
+    <div id="root">{% block content %} {% endblock %}</div>
+    <!-- script src="index.js" -->
   </body>
 </html>
