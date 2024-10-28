@@ -54,20 +54,17 @@ def sendDataClass(req, name):
     for section in ClassSection:
         SubSection = Class_SubSection.objects.all().filter(Section = section.id).order_by('Order')
         Question = Class_Question.objects.all().filter(Section = section.id).order_by('Order')
-        
-        cls = []
+                
         sub = []
         ask = []
         order = []
         for subsection in SubSection:
             serialize = Serializer_Class_SubSection(subsection)
-            cls.append([serialize.data['Name'], serialize.data['Order']])
-            sub.append([serialize.data['Name'], serialize.data['Order']])
+            sub.append([serialize.data['Name'], serialize.data['Order'], "Section", serialize.data['id']])
             
         for question in Question:
             serialize = Serializer_Class_Question(question)
-            cls.append([serialize.data['Name'], serialize.data['Order']])
-            ask.append([serialize.data['Name'], serialize.data['Order']])
+            ask.append([serialize.data['Name'], serialize.data['Order'], "Question", serialize.data['id']])
 
         save = 1
         s_index = 0
@@ -108,10 +105,19 @@ def sendDataClass(req, name):
 
 
 @api_view(['GET'])
-def sendSection(req, id):
-    Section = Class_Section.objects.get(id = id)
-    ConvertSSection = Serializer_Class_Section(Section)
-    SubSection = Class_SubQuestion.objects.all().filter(Section = Section.id).order_by('Order')
-    
-    
+def sendSubSection(req, id):
+    obj = Class_SubSection.objects.get(id = id)
+    convert = Serializer_Class_SubSection(obj)
+    message  = "Not Have Errors :#"
+    if not obj:
+        message = "Dont Found! Anything"
+    send = {
+        "Message" : message,
+        "Data" : convert.data 
+    }
+    return JsonResponse(send)
+
+
+@api_view(['GET'])
+def sendQuestion(req, id):
     pass
