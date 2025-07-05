@@ -1,0 +1,3 @@
+# Remodelar todo este codigo... 
+
+Este codigo presenta un mal diseño y puedo mejorar muchas Cosas Ahora
